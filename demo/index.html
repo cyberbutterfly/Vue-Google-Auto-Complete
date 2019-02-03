@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>google-places-complete - demo</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Google autocomplete vuejs componet.">
+	<meta name="author" content="Goblin Daydream - goblin.daydream@gmail.com">
+	<meta http-equiv="Content-Language" content="en" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.1/css/bulma.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<div id="demo" class="container">
+
+    <section class="hero is-light">
+        <div class="hero-head">
+            <nav class="nav">
+                <div class="nav-left">
+                    <a href="#" class="nav-item is-brand">
+                        <h1 class="title">Google Autocomplete Componet</h1>
+                    </a>
+                </div>
+                <div id="nav-menu" class="nav-right nav-menu">
+                    <div class="nav-item"><a href="https://github.com/goblindaydream/Vue-Google-Auto-Complete" target="_blank" class="nav-item"><i class="fa fa-github" aria-hidden="true"></i>&nbsp;DOCUMENTATION</a></div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="subtitle">
+                    A small <strong>vue</strong> plugin to pull in the google places autocomplete in your projects.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="box">
+        <form class="form-horizontal" role="form" @submit.prevent="submit">
+
+            <div>
+                <label class="label">Address:</label>
+                <p class="control">
+                    <google-autocomplete
+                        class = "input"
+                        input_id = "txtAutocomplete"
+                        placeholder = "type your address"
+                        :config="{ type: ['geocode']}"
+                    >
+                    </google-autocomplete>
+                    <span class="help is-danger" v-if="sent && isNotValid()">Select a valid address!</span>
+                </p>
+            </div>
+
+            <p class="control">&nbsp;</p>
+
+            <p class="control">
+                <button type="submit" class="button is-primary is-outlined">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;Save Address
+                </button>
+            </p>
+
+        </form>
+    </div>
+
+    <article class="message is-success" v-if="isValid()">
+        <div class="message-header">
+            Address retrieved from google places
+        </div>
+        <div class="message-body">
+            <label>Output</label>
+            <pre>{{ output }}</pre>
+            <label>Response</label>
+            <pre>{{ response }}</pre>
+        </div>
+    </article>
+
+</div>
+
+<script src="../dist/demo.js"></script>
+
+</body>
+</html>
