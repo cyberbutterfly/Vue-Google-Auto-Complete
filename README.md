@@ -41,12 +41,6 @@ import GoogleAutocomplete from 'google-autocomplete-vue';
 ```
 
 
-# Validation on server side
-
-Places validation is a ***laravel library*** that will help you out to handle your user addresses. Its aim is making sure addresses submitted by users are valid through 3rd party services, as google.
-
-Take a look at its repository on <a href="https://github.com/gocanto/places-validation"> Places Validation </a>
-
 
 # Illustration
 
